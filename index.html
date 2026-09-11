@@ -1,1 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071511" />
+    <title>Ithinoru Pattu!!!!!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#camera" aria-label="Ithinoru Pattu home"><span class="camera-logo">◎</span><span>Ithinoru <em>Pattu!!!!!</em><small>Your look. Your song.</small></span></a>
+        <div class="top-actions"><span class="privacy-dot"></span><span class="private">Stays on your phone</span><button class="icon-button" id="themeButton" aria-label="Toggle theme">☼</button></div>
+      </header>
 
+      <aside class="sidebar" aria-label="Main navigation">
+        <button class="nav-item active" data-page="camera"><span>◉</span>Camera</button>
+        <button class="nav-item" data-page="gallery"><span>▧</span>Gallery</button>
+        <button class="nav-item" data-page="saved"><span>♡</span>Saved</button>
+        <button class="nav-item" data-page="settings"><span>⚙</span>Settings</button>
+      </aside>
+
+      <section class="content">
+        <section class="camera-column">
+          <div class="section-heading"><div><p class="eyebrow">LIVE VIBE CHECK</p><h1>Ee lookinu entha <span>pattu?</span></h1></div><span class="status-pill" id="cameraStatus"><i></i> Ready</span></div>
+          <div class="camera-frame" id="cameraFrame">
+            <video id="camera" autoplay playsinline muted></video>
+            <canvas id="captureCanvas" hidden></canvas>
+            <img id="uploadedImage" alt="Selected photo to analyze" hidden />
+            <div class="camera-empty" id="cameraEmpty"><div class="big-camera">◉</div><h2>Show me your fit</h2><p>Outfit, expression, accessories… njan pattu kandupidikkam.</p><button class="primary-button" id="startCamera">Open camera <span>↗</span></button></div>
+            <div class="camera-hud" id="cameraHud" hidden><span><b></b> LIVE</span><button id="flipCamera" class="hud-button" aria-label="Switch camera">↺</button></div>
+            <div class="scan-toast" id="scanToast" hidden><span class="sparkle">✦</span><div><strong id="scanTitle">Reading the drip...</strong><small id="scanText">Looking at your colours and energy</small></div><span class="scan-loader"></span></div>
+            <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+          </div>
+          <div class="camera-controls">
+            <button class="control-button primary-control" id="scanButton"><span>✦</span> Scan this look</button>
+            <label class="control-button upload-control"><input type="file" id="imageInput" accept="image/*" capture="user" /> <span>▧</span> Use a photo</label>
+            <button class="control-button ghost-control" id="stopCamera" disabled>Stop camera</button>
+          </div>
+          <div class="detectors" aria-label="Visual cues checked">
+            <span>◈ Outfit</span><span>◌ Colours</span><span>▦ Prints</span><span>⌁ Accessories</span><span>☺ Expression</span><span>⌑ Objects</span>
+          </div>
+        </section>
+
+        <aside class="result-column">
+          <article class="vibe-card" id="vibeCard">
+            <div class="card-label"><span class="mint-icon">✦</span><span>DETECTED VIBE</span><button id="lockVibe" class="lock-button" title="Lock this vibe">♧</button></div>
+            <div class="vibe-main"><div class="vibe-orb" id="vibeOrb">✦</div><div><h2 id="vibeName">Waiting for your look</h2><p id="vibeDescription">Turn on the camera or pick a photo to find your soundtrack.</p></div></div>
+            <div class="cue-chips" id="cueChips"><span>camera off</span><span>no vibe yet</span></div>
+          </article>
+          <article class="songs-card">
+            <div class="songs-heading"><div><p class="eyebrow">YOUR SOUNDTRACK</p><h2>Ithinoru pattu!</h2></div><button class="shuffle" id="anotherSong" title="Show another song">↻</button></div>
+            <p class="song-intro" id="songIntro">A good look deserves a good song.</p>
+            <div class="song-list" id="songList"></div>
+          </article>
+        </aside>
+      </section>
+    </main>
+    <nav class="mobile-nav" aria-label="Mobile navigation"><button class="active" data-page="camera">◉<span>Camera</span></button><button data-page="gallery">▧<span>Gallery</span></button><button data-page="saved">♡<span>Saved</span></button><button data-page="settings">⚙<span>Settings</span></button></nav>
+    <div class="toast" id="toast"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
