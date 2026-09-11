@@ -87,13 +87,16 @@ npm run dev
 
 #### Screenshots
 
-![Screenshot1](screenshots/01-studio-dashboard.jpg)
+<img width="1273" height="902" alt="image" src="https://github.com/user-attachments/assets/9aad626d-62a2-4e10-aa6d-18a3530ea7e1" />
+
 *Studio Dashboard: Live camera feed with real-time color swatches, T-shirt text detection, and symmetrical navigation dock.*
 
-![Screenshot2](screenshots/02-music-player-flow.jpg)
+<img width="1230" height="892" alt="image" src="https://github.com/user-attachments/assets/825759f6-dbc3-459e-a9ec-3ebc876332f9" />
+
 *Music Player Flow: Active playback deck with revolving album vinyl, interactive waveform visualizer, and ranked recommendations.*
 
-![Screenshot3](screenshots/03-vibe-analysis-details.jpg)
+<img width="1267" height="898" alt="image" src="https://github.com/user-attachments/assets/25bf32a1-62b0-4385-8d26-5a09500da41e" />
+
 *Vibe Analysis Details: Collapsible dropdown menu revealing deep visual confidence metrics, detected T-shirt slogans, and formula tags.*
 
 #### Diagrams
@@ -122,7 +125,7 @@ flowchart TD
 ## Project Demo
 
 ### Video
-[Demo Video Link](https://github.com/vishnupriya759285/coffee-coders)  
+https://drive.google.com/file/d/1Dh0zfysD0te87shpRW62XWnz5mkH4aKN/view?usp=sharing
 *Demonstrates live webcam scanning, T-shirt text detection, and instant music playback of matching regional anthems.*
 
 ### Additional Demos
