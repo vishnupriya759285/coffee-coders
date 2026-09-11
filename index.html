@@ -4,62 +4,543 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#071511" />
-    <title>Ithinoru Pattu!!!!!</title>
+    <title>Ithinoru Pattu · Live Outfit Soundtrack Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
   </head>
   <body>
     <main class="app-shell">
       <header class="topbar">
-        <a class="brand" href="#camera" aria-label="Ithinoru Pattu home"><span class="camera-logo">◎</span><span>Ithinoru <em>Pattu!!!!!</em><small>Your look. Your song.</small></span></a>
-        <div class="top-actions"><span class="privacy-dot"></span><span class="private">Stays on your phone</span><button class="icon-button" id="themeButton" aria-label="Toggle theme">☼</button></div>
+        <a class="brand" href="#camera" aria-label="Ithinoru Pattu home">
+          <span class="camera-logo">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <circle cx="12" cy="12" r="3.5"/>
+              <line x1="12" y1="3" x2="12" y2="6"/>
+              <line x1="12" y1="18" x2="12" y2="21"/>
+              <line x1="3" y1="12" x2="6" y2="12"/>
+              <line x1="18" y1="12" x2="21" y2="12"/>
+            </svg>
+          </span>
+          <span>Ithinoru <em>Pattu</em><small>Live Outfit to Soundtrack Matcher</small></span>
+        </a>
+        <!-- Symmetrical Center Navigation Dock -->
+        <nav class="topbar-nav" aria-label="Main navigation">
+          <button class="nav-item active" data-page="camera">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span>Camera</span>
+          </button>
+          <button class="nav-item" data-page="gallery">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Upload</span>
+          </button>
+          <button class="nav-item" data-page="timeline">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Timeline</span>
+          </button>
+          <button class="nav-item" data-page="settings">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>Settings</span>
+          </button>
+        </nav>
+
+        <div class="top-actions">
+          <div class="privacy-pill" title="Private on-device visual analysis">
+            <span class="privacy-dot"></span>
+            <span class="private-text">On-Device Vision · Zero Cloud Upload</span>
+          </div>
+          <button class="icon-button" id="themeButton" aria-label="Toggle theme" title="Toggle Light/Dark theme">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
+        </div>
       </header>
 
-      <aside class="sidebar" aria-label="Main navigation">
-        <button class="nav-item active" data-page="camera"><span>◉</span>Camera</button>
-        <button class="nav-item" data-page="gallery"><span>▧</span>Gallery</button>
-        <button class="nav-item" data-page="saved"><span>♡</span>Saved</button>
-        <button class="nav-item" data-page="settings"><span>⚙</span>Settings</button>
-      </aside>
-
       <section class="content">
+        <!-- Center Column: Camera & Live Stream -->
         <section class="camera-column">
-          <div class="section-heading"><div><p class="eyebrow">LIVE VIBE CHECK</p><h1>Ee lookinu entha <span>pattu?</span></h1></div><span class="status-pill" id="cameraStatus"><i></i> Ready</span></div>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">STYLE TELEMETRY · OPTICAL SENSOR</p>
+              <h1>Ee lookinu entha <span>pattu?</span></h1>
+            </div>
+            <div class="heading-tags">
+              <span class="status-pill mode-pill" id="peopleModePill">SOLO SUBJECT</span>
+              <span class="status-pill" id="cameraStatus"><i></i> Ready</span>
+            </div>
+          </div>
+
+          <!-- Cinema Viewport Frame -->
           <div class="camera-frame" id="cameraFrame">
             <video id="camera" autoplay playsinline muted></video>
             <canvas id="captureCanvas" hidden></canvas>
             <img id="uploadedImage" alt="Selected photo to analyze" hidden />
-            <div class="camera-empty" id="cameraEmpty"><div class="big-camera">◉</div><h2>Show me your fit</h2><p>Outfit, expression, accessories… njan pattu kandupidikkam.</p><button class="primary-button" id="startCamera">Open camera <span>↗</span></button></div>
-            <div class="camera-hud" id="cameraHud" hidden><span><b></b> LIVE</span><button id="flipCamera" class="hud-button" aria-label="Switch camera">↺</button></div>
-            <div class="scan-toast" id="scanToast" hidden><span class="sparkle">✦</span><div><strong id="scanTitle">Reading the drip...</strong><small id="scanText">Looking at your colours and energy</small></div><span class="scan-loader"></span></div>
-            <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+
+            <!-- Cinema Viewfinder Overlay -->
+            <div class="viewfinder-overlay" id="viewfinderOverlay">
+              <div class="viewfinder-crosshair" id="viewfinderCrosshair">+</div>
+              <div class="viewfinder-aspect">4:5</div>
+            </div>
+
+            <div class="camera-empty" id="cameraEmpty">
+              <div class="big-camera">
+                <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+              </div>
+              <h2>Position your fit in frame</h2>
+              <p>Outfit silhouette, color palette, accessories & print details are paired instantly with high-fidelity tracks.</p>
+              <button class="primary-button" id="startCamera">
+                <span>Activate Camera</span>
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+
+            <div class="camera-hud" id="cameraHud" hidden>
+              <span class="hud-live-tag"><b></b> LIVE SENSOR</span>
+              <div class="hud-actions">
+                <button id="resetButton" class="hud-button" title="Reset frame" aria-label="Reset frame">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                </button>
+                <button id="flipCamera" class="hud-button" title="Switch camera" aria-label="Switch camera">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Toast alert over camera -->
+            <div class="scan-toast" id="scanToast" hidden>
+              <span class="pulse-indicator"></span>
+              <div>
+                <strong id="scanTitle">Analyzing style geometry...</strong>
+                <small id="scanText">Extracting palette, silhouette, accessories & energy</small>
+              </div>
+              <span class="scan-loader"></span>
+            </div>
           </div>
+
+          <!-- Camera Controls -->
           <div class="camera-controls">
-            <button class="control-button primary-control" id="scanButton"><span>✦</span> Scan this look</button>
-            <label class="control-button upload-control"><input type="file" id="imageInput" accept="image/*" capture="user" /> <span>▧</span> Use a photo</label>
-            <button class="control-button ghost-control" id="stopCamera" disabled>Stop camera</button>
+            <button class="control-button primary-control" id="scanButton">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
+              <span>Capture & Match</span>
+            </button>
+            <label class="control-button upload-control">
+              <input type="file" id="imageInput" accept="image/*" capture="user" />
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span>Upload Photo</span>
+            </label>
+            <button class="control-button" id="resetControlBtn">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+              <span>Reset Frame</span>
+            </button>
+            <button class="control-button" id="rouletteButton" title="Surprise track from compatible genres">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+              <span>Surprise Mix</span>
+            </button>
+            <button class="control-button ghost-control" id="stopCamera" disabled>Standby</button>
           </div>
-          <div class="detectors" aria-label="Visual cues checked">
-            <span>◈ Outfit</span><span>◌ Colours</span><span>▦ Prints</span><span>⌁ Accessories</span><span>☺ Expression</span><span>⌑ Objects</span>
+
+          <!-- Detection Banners (Positioned UNDER camera & controls to preserve top symmetry) -->
+          <!-- Multi-Person Detection Banner (Duo & Group States) -->
+          <div class="multi-person-banner" id="multiPersonBanner" hidden>
+            <div class="banner-top">
+              <span class="group-mode-title" id="groupModeTitle">FRIEND GROUP DETECTED</span>
+              <span class="energy-score-tag" id="groupEnergyTag">HIGH ENERGY · 94%</span>
+            </div>
+            <div class="banner-details" id="groupDetailsText">
+              Cohesive street style ensemble · Aesthetic Diversity 88% · Dominant: Dark Streetwear
+            </div>
+            <!-- Aux Winner Card (For groups/duos) -->
+            <div class="aux-winner-card" id="auxWinnerCard" hidden>
+              <div class="aux-badge">LEAD PRESENCE</div>
+              <div class="aux-details">
+                <strong id="auxWinnerPerson">SUBJECT 3 (Intensity: 94%)</strong>
+                <small id="auxWinnerReason">Highest kinetic energy and sharpest contrast leads sound selection.</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- T-Shirt Word Match Banner -->
+          <div class="item-changed-banner tshirt-match-banner" id="tshirtMatchBanner" hidden>
+            <span class="banner-chip">TEXT MATCH</span>
+            <div class="item-text">
+              <strong id="tshirtMatchTitle">EXTRACTED: "CHEQUES"</strong>
+              <small id="tshirtMatchDeltas">Direct semantic match → Queued "Cheques" by Shubh</small>
+            </div>
+            <button class="dismiss-banner" id="dismissTShirtBanner">✕</button>
+          </div>
+
+          <!-- "One Item Changed" Notification Toast -->
+          <div class="item-changed-banner" id="itemChangedBanner" hidden>
+            <span class="banner-chip">DELTA DETECTED</span>
+            <div class="item-text">
+              <strong id="itemChangedTitle">LAYER DETECTED: BLAZER</strong>
+              <small id="itemChangedDeltas">CLASSINESS +31% · ENERGY -8% · RECALIBRATING SOUNDTRACK</small>
+            </div>
+            <button class="dismiss-banner" id="dismissItemBanner">✕</button>
+          </div>
+
+          <!-- Precision Hardware Parameter Ribbon -->
+          <div class="param-strip" id="liveDetectorsStrip" aria-label="Style Telemetry">
+            <div class="param-col">
+              <span class="param-label">SUBJECT</span>
+              <strong class="param-val" id="detMode">Solo Subject</strong>
+            </div>
+            <div class="param-col">
+              <span class="param-label">AESTHETIC</span>
+              <strong class="param-val" id="detStyle">Streetwear</strong>
+            </div>
+            <div class="param-col">
+              <span class="param-label">PALETTE</span>
+              <strong class="param-val" id="detColors">Dark Monochrome</strong>
+            </div>
+            <div class="param-col">
+              <span class="param-label">SURFACE TEXT</span>
+              <strong class="param-val" id="detText">Clean Minimal</strong>
+            </div>
+            <div class="param-col">
+              <span class="param-label">ACCENTS</span>
+              <strong class="param-val" id="detAcc">Clean Stance</strong>
+            </div>
+            <div class="param-col">
+              <span class="param-label">INTENSITY</span>
+              <strong class="param-val" id="detVibe">89% Velocity</strong>
+            </div>
           </div>
         </section>
 
+        <!-- Right Column: Music Soundtrack at top, followed by Vibe Mirror and Explainability -->
         <aside class="result-column">
-          <article class="vibe-card" id="vibeCard">
-            <div class="card-label"><span class="mint-icon">✦</span><span>DETECTED VIBE</span><button id="lockVibe" class="lock-button" title="Lock this vibe">♧</button></div>
-            <div class="vibe-main"><div class="vibe-orb" id="vibeOrb">✦</div><div><h2 id="vibeName">Waiting for your look</h2><p id="vibeDescription">Turn on the camera or pick a photo to find your soundtrack.</p></div></div>
-            <div class="cue-chips" id="cueChips"><span>camera off</span><span>no vibe yet</span></div>
-          </article>
+
+          <!-- Songs & Music Player Container (Top of Right Column) -->
           <article class="songs-card">
-            <div class="songs-heading"><div><p class="eyebrow">YOUR SOUNDTRACK</p><h2>Ithinoru pattu!</h2></div><button class="shuffle" id="anotherSong" title="Show another song">↻</button></div>
-            <p class="song-intro" id="songIntro">A good look deserves a good song.</p>
+            <div class="songs-heading">
+              <div>
+                <p class="eyebrow">CURATED SOUNDTRACK</p>
+                <h2>Ithinoru Pattu</h2>
+              </div>
+              <button class="shuffle" id="anotherSong" title="Shuffle compatible track">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+              </button>
+            </div>
+            <p class="song-intro" id="songIntro">Soundtrack automatically calibrated to visual silhouette and palette.</p>
+
+            <!-- Complete Real Music Player Controls Widget -->
+            <div class="spotify-player-widget" id="spotifyPlayerWidget">
+              <div class="spotify-header">
+                <div class="spotify-brand">
+                  <span class="deck-indicator"></span>
+                  <span>SOUNDTRACK DECK</span>
+                </div>
+                <div class="player-badge">
+                  <span class="live-dot" id="playerLiveDot"></span>
+                  <span id="playerStatusText">Ready for scan</span>
+                </div>
+              </div>
+
+              <!-- Active Track Showcase Deck (Revolving Vinyl Record Aesthetic) -->
+              <div class="active-track-showcase" id="activeTrackShowcase">
+                <div class="active-cover vinyl-disc" id="activeCover" style="background-image: url('https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/88/4e/29/884e290c-29ed-25d5-7b25-243b89097220/cover.jpg/300x300bb.jpg'); background-size: cover; background-position: center;">
+                  <div class="vinyl-rings"></div>
+                  <div class="vinyl-center">
+                    <span class="vinyl-icon" id="activeEmoji" style="display: none;">✦</span>
+                  </div>
+                </div>
+                <div class="active-details">
+                  <div class="active-title-row">
+                    <strong class="active-title" id="nowPlayingTitle">Illuminati</strong>
+                    <span class="active-genre-tag" id="nowPlayingGenre">VIRAL MALAYALAM TRAP</span>
+                  </div>
+                  <div class="active-artist-row">
+                    <span class="active-artist" id="nowPlayingArtist">Sushin Shyam, Dabzee</span>
+                    <span class="active-dot">·</span>
+                    <span class="active-lang" id="nowPlayingLang">Malayalam</span>
+                  </div>
+                </div>
+                <div class="active-actions">
+                  <div class="visualizer" id="audioVisualizer">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
+                    <span class="bar bar-4"></span>
+                    <span class="bar bar-5"></span>
+                  </div>
+                  <a class="spotify-direct-btn" id="activeSpotifyLink" href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" title="Listen on Spotify">
+                    <svg class="spotify-svg-icon" viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
+                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.498 17.306c-.218.358-.684.47-1.042.253-2.855-1.745-6.449-2.14-10.682-1.173-.41.093-.815-.164-.908-.574-.093-.41.164-.814.574-.907 4.63-1.057 8.608-.61 11.805 1.349.358.217.47.683.253 1.052zm1.467-3.26c-.274.446-.86.588-1.306.314-3.268-2.008-8.25-2.59-12.114-1.416-.499.152-1.026-.134-1.178-.633-.152-.499.134-1.026.633-1.178 4.417-1.34 9.91-.689 13.651 1.609.446.274.588.86.314 1.306zm.126-3.393c-3.918-2.327-10.373-2.541-14.127-1.399-.602.183-1.238-.166-1.421-.767-.183-.601.166-1.237.767-1.42 4.316-1.31 11.442-1.059 15.96 1.625.54.32.716 1.022.396 1.562-.32.54-1.022.716-1.562.396z"/>
+                    </svg>
+                    <span>Spotify</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Interactive Player Controller Bar -->
+              <div class="player-controls-bar">
+                <div class="player-main-btns">
+                  <button class="player-btn" id="prevTrackBtn" title="Previous compatible song" aria-label="Previous track">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2.5"/></svg>
+                  </button>
+                  <button class="player-btn play-toggle-btn" id="mainPlayPauseBtn" title="Play / Pause" aria-label="Play or pause">
+                    <svg class="play-svg" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  </button>
+                  <button class="player-btn" id="nextTrackBtn" title="Next compatible song" aria-label="Next track">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2.5"/></svg>
+                  </button>
+                </div>
+
+                <!-- Progress & Timeline Slider -->
+                <div class="player-progress-section">
+                  <span class="time-stamp" id="currentTimeStamp">0:00</span>
+                  <div class="progress-track" id="progressTrack">
+                    <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                  </div>
+                  <span class="time-stamp" id="totalDurationStamp">2:54</span>
+                </div>
+
+                <!-- Volume Slider -->
+                <div class="player-volume-section">
+                  <span class="vol-icon" id="volIcon">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  </span>
+                  <input type="range" class="vol-slider" id="volumeSlider" min="0" max="100" value="85" aria-label="Volume control" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Regional Language Filter Dock -->
+            <div class="lang-filter-bar" id="langFilterBar" aria-label="Regional language selection">
+              <button type="button" class="lang-chip active" data-lang="all">All Vibes</button>
+              <button type="button" class="lang-chip" data-lang="malayalam">Malayalam</button>
+              <button type="button" class="lang-chip" data-lang="tamil">Tamil</button>
+              <button type="button" class="lang-chip" data-lang="hindi">Hindi</button>
+              <button type="button" class="lang-chip" data-lang="global">Global</button>
+            </div>
+
+            <!-- Recommended Playlist Queue -->
             <div class="song-list" id="songList"></div>
           </article>
+
+          <!-- Collapsible Analysis Dropdown Menu (Preserves Dual-Deck Symmetry) -->
+          <div class="analysis-dropdown-wrapper" id="analysisDropdownWrapper">
+            <button class="analysis-dropdown-btn" id="analysisDropdownBtn" aria-expanded="false" type="button">
+              <div class="analysis-btn-left">
+                <span class="analysis-btn-icon">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 9.17l4.24-4.24M14.83 14.83l4.24 4.24M9.17 14.83l-4.24 4.24"/></svg>
+                </span>
+                <div class="analysis-btn-text">
+                  <strong id="analysisDropdownTitle">STYLE SPECTRUM & MATCH REASONING</strong>
+                  <small id="analysisDropdownSubtitle">Press to inspect visual metrics, color breakdown & pairing signals</small>
+                </div>
+              </div>
+              <div class="analysis-btn-right">
+                <span class="analysis-pill" id="analysisPill">96% MATCH</span>
+                <span class="analysis-chevron" id="analysisChevron">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </div>
+            </button>
+
+            <!-- Dropdown Menu Content (Collapsed by default, expands on click) -->
+            <div class="analysis-dropdown-menu" id="analysisDropdownMenu" hidden>
+              <!-- Style Spectrum Metrics -->
+              <article class="vibe-mirror-card" id="vibeMirrorCard">
+                <div class="mirror-header">
+                  <div class="mirror-title">
+                    <span class="dna-icon">
+                      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                    </span>
+                    <h3>STYLE SPECTRUM ANALYSIS</h3>
+                  </div>
+                  <span class="mirror-tag" id="dnaDominantTag">STREETWEAR</span>
+                </div>
+
+                <div class="dna-meters">
+                  <div class="dna-row">
+                    <span class="meter-label">ENERGY</span>
+                    <div class="meter-track">
+                      <div class="meter-fill" id="meterEnergy" style="width: 89%;"></div>
+                    </div>
+                    <span class="meter-pct" id="pctEnergy">89%</span>
+                  </div>
+                  <div class="dna-row">
+                    <span class="meter-label">EDGE</span>
+                    <div class="meter-track">
+                      <div class="meter-fill" id="meterEdge" style="width: 82%;"></div>
+                    </div>
+                    <span class="meter-pct" id="pctEdge">82%</span>
+                  </div>
+                  <div class="dna-row">
+                    <span class="meter-label">PLAYFUL</span>
+                    <div class="meter-track">
+                      <div class="meter-fill" id="meterPlayful" style="width: 64%;"></div>
+                    </div>
+                    <span class="meter-pct" id="pctPlayful">64%</span>
+                  </div>
+                  <div class="dna-row">
+                    <span class="meter-label">DREAMY</span>
+                    <div class="meter-track">
+                      <div class="meter-fill" id="meterDreamy" style="width: 31%;"></div>
+                    </div>
+                    <span class="meter-pct" id="pctDreamy">31%</span>
+                  </div>
+                  <div class="dna-row">
+                    <span class="meter-label">CLASSY</span>
+                    <div class="meter-track">
+                      <div class="meter-fill" id="meterClassy" style="width: 52%;"></div>
+                    </div>
+                    <span class="meter-pct" id="pctClassy">52%</span>
+                  </div>
+                  <div class="dna-row">
+                    <span class="meter-label">STREET</span>
+                    <div class="meter-track">
+                      <div class="meter-fill" id="meterStreet" style="width: 88%;"></div>
+                    </div>
+                    <span class="meter-pct" id="pctStreet">88%</span>
+                  </div>
+                </div>
+
+                <!-- Dominant Color Breakdown -->
+                <div class="color-palette-bar" id="colorPaletteBar">
+                  <span class="palette-title">PRIMARY PALETTE:</span>
+                  <div class="palette-swatches" id="paletteSwatches">
+                    <span class="swatch-item"><i style="background: #111815;"></i> BLACK 42%</span>
+                    <span class="swatch-item"><i style="background: #e2e8e4;"></i> WHITE 28%</span>
+                    <span class="swatch-item"><i style="background: #e63946;"></i> RED 18%</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- "Why This Song?" Explainability Section -->
+              <article class="explain-card" id="explainCard">
+                <div class="explain-header">
+                  <div class="explain-title">
+                    <span class="explain-icon">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </span>
+                    <h3>ACOUSTIC PAIRING LOGIC</h3>
+                  </div>
+                  <span class="match-score-badge" id="matchScoreBadge">96% MATCH</span>
+                </div>
+                <div class="explain-items" id="explainItemsList">
+                  <div class="explain-item">
+                    <span class="exp-bullet">◈</span>
+                    <div class="exp-text"><strong>Dark Tone Fit</strong><small>Urban black streetwear monochrome</small></div>
+                    <span class="exp-influence">+18 EDGE</span>
+                  </div>
+                  <div class="explain-item">
+                    <span class="exp-bullet">◈</span>
+                    <div class="exp-text"><strong>Eyewear Stance</strong><small>Dark shades detected</small></div>
+                    <span class="exp-influence">+12 EDGE</span>
+                  </div>
+                  <div class="explain-item">
+                    <span class="exp-bullet">◈</span>
+                    <div class="exp-text"><strong>Metallic Accent</strong><small>Chain jewelry & hardware</small></div>
+                    <span class="exp-influence">+15 STREET</span>
+                  </div>
+                  <div class="explain-item">
+                    <span class="exp-bullet">◈</span>
+                    <div class="exp-text"><strong>Graphic & Print</strong><small>Racing velocity motif</small></div>
+                    <span class="exp-influence">+10 ENERGY</span>
+                  </div>
+                </div>
+                <div class="explain-footer">
+                  <span>STYLE HARMONY:</span>
+                  <strong id="finalVibeFormula">STREET × NIGHT × HIGH ENERGY</strong>
+                </div>
+              </article>
+
+              <!-- "If Your Outfit Was A Song..." Result Card -->
+              <article class="outfit-song-card" id="outfitSongCard">
+                <div class="outfit-tag">OUTFIT ACOUSTIC IDENTITY</div>
+                <h3 id="outfitSongTitle">Illuminati</h3>
+                <p id="outfitSongGenre">Genre: Malayalam / Viral Trap Flow</p>
+                <div class="outfit-vibe-formula" id="outfitVibeFormula">STREET × NIGHT × URBAN</div>
+              </article>
+            </div>
+          </div>
         </aside>
       </section>
     </main>
-    <nav class="mobile-nav" aria-label="Mobile navigation"><button class="active" data-page="camera">◉<span>Camera</span></button><button data-page="gallery">▧<span>Gallery</span></button><button data-page="saved">♡<span>Saved</span></button><button data-page="settings">⚙<span>Settings</span></button></nav>
+
+    <!-- Vibe Timeline Modal View -->
+    <div class="modal-backdrop" id="timelineModal" hidden>
+      <div class="modal-card" role="dialog" aria-labelledby="timelineModalTitle">
+        <div class="modal-header">
+          <div class="modal-title">
+            <span class="modal-icon">⏱</span>
+            <h3 id="timelineModalTitle">Vibe Timeline (Major State Changes)</h3>
+          </div>
+          <button class="close-modal" id="closeTimelineBtn" aria-label="Close timeline">✕</button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-subtitle">Logged visual vibe transitions and corresponding automatically selected tracks:</p>
+          <div class="timeline-items" id="timelineList">
+            <!-- Populated dynamically by main.ts -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Settings Modal -->
+    <div class="settings-modal-backdrop" id="settingsModal" hidden>
+      <div class="settings-modal" role="dialog" aria-labelledby="settingsModalTitle">
+        <div class="modal-header">
+          <div class="modal-title">
+            <span class="modal-icon">⚙</span>
+            <h3 id="settingsModalTitle">Playback & Spotify Settings</h3>
+          </div>
+          <button class="close-modal" id="closeSettings" aria-label="Close settings">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="settings-card premium-badge-card">
+            <div class="badge-icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="#1db954">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.498 17.306c-.218.358-.684.47-1.042.253-2.855-1.745-6.449-2.14-10.682-1.173-.41.093-.815-.164-.908-.574-.093-.41.164-.814.574-.907 4.63-1.057 8.608-.61 11.805 1.349.358.217.47.683.253 1.052zm1.467-3.26c-.274.446-.86.588-1.306.314-3.268-2.008-8.25-2.59-12.114-1.416-.499.152-1.026-.134-1.178-.633-.152-.499.134-1.026.633-1.178 4.417-1.34 9.91-.689 13.651 1.609.446.274.588.86.314 1.306zm.126-3.393c-3.918-2.327-10.373-2.541-14.127-1.399-.602.183-1.238-.166-1.421-.767-.183-.601.166-1.237.767-1.42 4.316-1.31 11.442-1.059 15.96 1.625.54.32.716 1.022.396 1.562-.32.54-1.022.716-1.562.396z"/>
+              </svg>
+            </div>
+            <div class="badge-text">
+              <h4>Spotify Premium & Real Player Active</h4>
+              <p>Direct in-site streaming with Web Audio procedural synthesizer fallback.</p>
+            </div>
+            <span class="status-active-chip">CONNECTED</span>
+          </div>
+
+          <div class="settings-group">
+            <label for="spotifyApiKeyInput">Spotify Soloist / Access Key (Optional)</label>
+            <div class="input-with-action">
+              <input type="password" id="spotifyApiKeyInput" value="" placeholder="Enter your Spotify API key (optional)" autocomplete="off" />
+              <button type="button" class="peek-btn" id="peekApiKey" title="Show/hide key">👁</button>
+            </div>
+            <small class="field-hint">Optional: Enter your personal Spotify API key for custom Web Playback SDK session features.</small>
+          </div>
+
+          <div class="settings-row">
+            <div>
+              <strong>Auto-Play Priority Song on Scan</strong>
+              <p>Automatically starts playing the #1 vibe match inside the player when a scan completes</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="autoPlayToggle" checked />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="settings-actions">
+            <button class="primary-button" id="saveSettingsBtn">Save & Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <button class="active" data-page="camera">◉<span>Camera</span></button>
+      <button data-page="gallery">▧<span>Gallery</span></button>
+      <button data-page="timeline">⏱<span>Timeline</span></button>
+      <button data-page="settings">⚙<span>Settings</span></button>
+    </nav>
+
     <div class="toast" id="toast"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
